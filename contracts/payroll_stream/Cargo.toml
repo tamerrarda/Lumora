@@ -1,0 +1,20 @@
+[package]
+name = "payroll_stream"
+version = "0.0.1"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["lib", "cdylib"]
+doctest = false
+
+[dependencies]
+soroban-sdk = { workspace = true }
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+
+[features]
+# So that other contracts (payroll_treasury) can register this contract and use
+# its client in their tests.
+testutils = ["soroban-sdk/testutils"]
