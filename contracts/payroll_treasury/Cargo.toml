@@ -1,0 +1,19 @@
+[package]
+name = "payroll_treasury"
+version = "0.0.1"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["lib", "cdylib"]
+doctest = false
+
+[dependencies]
+soroban-sdk = { workspace = true }
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+# Tests only: register the real payroll_stream contract and verify the cross-contract path.
+# The production cdylib does NOT depend on this crate (a #[contractclient] trait is used for cross-calls)
+# — this avoids the mixed lib/cdylib + LTO bitcode conflict.
+payroll_stream = { path = "../payroll_stream", features = ["testutils"] }
