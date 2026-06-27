@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  body {
+    @apply bg-base text-fg antialiased;
+    min-height: 100vh;
+  }
+
+  /* Keep monetary values from jumping */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  /* Focus visibility (accessibility) */
+  :focus-visible {
+    outline: 2px solid theme("colors.accent.DEFAULT");
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Documentation long-form typography (markdown-like, dependency-free) */
+  .doc-prose {
+    @apply text-[15px] leading-7 text-muted;
+  }
+  .doc-prose > :first-child {
+    @apply mt-0;
+  }
+  .doc-prose h1 {
+    @apply text-3xl font-bold tracking-tight text-fg;
+  }
+  .doc-prose .lead {
+    @apply mt-3 text-lg leading-relaxed text-muted;
+  }
+  .doc-prose h2 {
+    @apply mt-12 mb-3 scroll-mt-24 border-b border-line pb-2 text-xl font-bold tracking-tight text-fg;
+  }
+  .doc-prose h3 {
+    @apply mt-7 mb-1.5 text-base font-semibold text-fg;
+  }
+  .doc-prose p {
+    @apply my-4;
+  }
+  .doc-prose a {
+    @apply font-medium text-accent hover:underline;
+  }
+  .doc-prose strong {
+    @apply font-semibold text-fg;
+  }
+  .doc-prose ul {
+    @apply my-4 list-disc space-y-2 pl-5 marker:text-faint;
+  }
+  .doc-prose ol {
+    @apply my-4 list-decimal space-y-2 pl-5 marker:text-faint;
+  }
+  .doc-prose li {
+    @apply pl-1;
+  }
+  .doc-prose code {
+    @apply rounded bg-surface px-1.5 py-0.5 font-mono text-[0.85em] text-fg;
+  }
+  .doc-prose hr {
+    @apply my-8 border-line;
+  }
+
+  /* Loading skeleton shimmer */
+  .skeleton {
+    @apply relative overflow-hidden bg-surface;
+  }
+  .skeleton::after {
+    content: "";
+    @apply absolute inset-0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.7),
+      transparent
+    );
+    animation: shimmer 1.4s infinite;
+  }
+}
