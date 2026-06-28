@@ -1,0 +1,22 @@
+{
+  "name": "lumora-indexer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Lumora hafif indexer — Stellar RPC getEvents → SQLite → REST API (doc 05 §4)",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@stellar/stellar-sdk": "^14.6.1",
+    "better-sqlite3": "^11.8.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.10.7",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
