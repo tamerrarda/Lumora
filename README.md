@@ -6,6 +6,26 @@
 
 Employers deposit USDC, create salary streams for employees, and employees can withdraw their earned salary at any time. Idle employer funds not allocated to payroll can earn yield in a treasury layer while active salary reserves stay protected.
 
+## Screenshots
+
+| Landing | Earnings — live per-second counters |
+|---|---|
+| ![Landing](docs/screenshots/01-landing.png) | ![Earnings](docs/screenshots/02-earnings.png) |
+| **Payroll — fund & create stream** | **Payroll — streams & activity** |
+| ![Payroll create](docs/screenshots/03-payroll-create.png) | ![Payroll streams](docs/screenshots/04-payroll-streams.png) |
+| **Treasury & yield** | **Analytics** |
+| ![Treasury](docs/screenshots/05-treasury.png) | ![Analytics](docs/screenshots/06-analytics.png) |
+| **Docs** | |
+| ![Docs](docs/screenshots/07-docs.png) | |
+
+**Mobile**
+
+<p>
+  <img src="docs/screenshots/08-mobile-landing.png" width="240" alt="Mobile landing" />
+  <img src="docs/screenshots/09-mobile-how-it-works.png" width="240" alt="Mobile how it works" />
+</p>
+
+---
 
 - **payroll_stream:** `CCAY3UKTW6G4XUXLTWVOUYPHDIR2KOYDWELJ72PZGFBTRGRKC6NSH6OD`
 - **payroll_treasury:** `CD5ERANICKKDMD3G7ULGMV5AWXAOMK4AYTIENGZNUTZEMSBIEVVJTFRY`
