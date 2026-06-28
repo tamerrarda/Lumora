@@ -3,6 +3,7 @@
 **A real-time, yield-aware stablecoin payroll system on Stellar.**
 
 🔗 **Live demo:** [lumora-stream.vercel.app](https://lumora-stream.vercel.app)
+🎥 **Demo video:** [youtu.be/721Y2YrENd4](https://youtu.be/721Y2YrENd4)
 
 Employers deposit USDC, create salary streams for employees, and employees can withdraw their earned salary at any time. Idle employer funds not allocated to payroll can earn yield in a treasury layer while active salary reserves stay protected.
 
