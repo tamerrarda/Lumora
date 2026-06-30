@@ -64,6 +64,38 @@ Details: **[QUICKSTART.md](QUICKSTART.md)**.
 
 ---
 
+## User Onboarding & Feedback
+
+Users onboard through a **Google Form** that collects their name, email, Stellar wallet
+address, a 1–5 product rating, and open feedback. Submissions flow into a linked Google Sheet,
+which we export to Excel for analysis and record-keeping.
+
+- **Onboarding form:** [forms.gle/8jM5kg7TBzSxitu98](https://forms.gle/8jM5kg7TBzSxitu98) 
+- **Exported responses (Excel):** [`docs/lumora-user-feedback.xlsx`](docs/lumora-user-feedback.xlsx) 
+
+### Feedback iteration summary
+
+- **Loved:** per-second salary accrual, instant on-demand withdrawals, treasury yield on idle funds, and reserve isolation.
+- **Most-requested next:** multi-asset payroll (EURC alongside USDC), role-based access for employer org accounts, and bulk stream creation.
+- **Friction reported:** occasional first-load delay on withdrawal history and a one-time wallet `txBadAuth` on first sign — both already addressed (see below).
+
+**Already shipped (from early feedback):**
+
+- Date-based stream end dates instead of month-only — [`00dfbab`](https://github.com/tamerrarda/Lumora/commit/00dfbab)
+- Reliable withdrawal history & live earnings counter — [`7f4c973`](https://github.com/tamerrarda/Lumora/commit/7f4c973)
+- Yield-aware treasury with reserve isolation — [`e27b6ca`](https://github.com/tamerrarda/Lumora/commit/e27b6ca)
+- On-chain spend analytics + yield projection — [`9380725`](https://github.com/tamerrarda/Lumora/commit/9380725)
+
+**Next phase — planned (next milestone):**
+
+- Multi-asset payroll (EURC and other SEP-41 assets alongside USDC)
+- Role-based access control for employer organization accounts
+- CSV bulk-import to create many streams in one transaction
+- Selectable treasury yield strategies + exportable payroll/audit event log
+- Mobile push notifications when funds are claimable, and dark mode
+
+---
+
 ## Practical Files
 
 - **[QUICKSTART.md](QUICKSTART.md)** — run in 10 minutes (setup, deploy, USDC smoke test, demo seed)
