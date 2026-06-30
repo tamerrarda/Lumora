@@ -4,6 +4,7 @@
 
 🔗 **Live demo:** [lumora-stream.vercel.app](https://lumora-stream.vercel.app)
 🎥 **Demo video:** [youtu.be/721Y2YrENd4](https://youtu.be/721Y2YrENd4)
+📊 **Pitch deck:** [Google Slides](https://docs.google.com/presentation/d/1SjpuAG90ND0ZyV_UWDFNXMdJyC9D8p7uV3hO79ngUHM/edit?usp=sharing)
 
 Employers deposit USDC, create salary streams for employees, and employees can withdraw their earned salary at any time. Idle employer funds not allocated to payroll can earn yield in a treasury layer while active salary reserves stay protected.
 
