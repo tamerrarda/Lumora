@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Nav } from "./Nav";
 import { ConnectButton } from "./ConnectButton";
 import { NAV_LINKS } from "./navLinks";
@@ -13,21 +13,35 @@ import { cn } from "./ui";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 12));
 
   return (
     <motion.header
       initial={{ y: -16, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className="sticky top-0 z-30 border-b border-line bg-base/80 backdrop-blur-xl"
+      className={cn(
+        "sticky top-0 z-30 transition-[background-color,border-color,box-shadow] duration-300",
+        scrolled
+          ? "border-b border-line bg-base/85 shadow-[0_1px_20px_-8px_rgba(21,21,26,0.25)] backdrop-blur-xl"
+          : "border-b border-transparent bg-base/40 backdrop-blur-md"
+      )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6">
+      <div
+        className={cn(
+          "mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 transition-[height] duration-300",
+          scrolled ? "h-14" : "h-16"
+        )}
+      >
         {/* Left: logo + nav */}
         <div className="flex items-center gap-7">
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="flex shrink-0 items-center gap-2.5 text-lg font-bold tracking-tight"
+            className="flex shrink-0 items-center gap-2.5 font-display text-lg font-bold tracking-tight"
           >
             <motion.span
               whileHover={{ scale: 1.08, rotate: -3 }}

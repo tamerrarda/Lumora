@@ -11,12 +11,12 @@ const config: Config = {
         surface: "#f2eee2", // input / inner surface / subtle grid (warm)
         line: "#e7e0d0", // borders & dividers (warm)
         ink: "#ffffff", // text/icon ON lilac buttons (white)
-        // Brand — Stellar Lilac (primary)
+        // Brand — dusty mauve (primary)
         accent: {
-          DEFAULT: "#6e56cf",
-          dark: "#5746af", // hover / active
-          soft: "rgba(110,86,207,0.10)",
-          ring: "rgba(110,86,207,0.30)",
+          DEFAULT: "#726a86",
+          dark: "#5d566e", // hover / active
+          soft: "rgba(114,106,134,0.12)",
+          ring: "rgba(114,106,134,0.32)",
         },
         // Brand — Yellow (energetic secondary accent; pair with black text)
         yellow: {
@@ -45,6 +45,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "Cambria", "serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       borderRadius: {
@@ -52,7 +54,7 @@ const config: Config = {
       },
       boxShadow: {
         card: "0 1px 2px rgba(21,21,26,0.04), 0 1px 3px rgba(21,21,26,0.05)",
-        glow: "0 0 0 1px rgba(110,86,207,0.25), 0 10px 30px -12px rgba(110,86,207,0.30)",
+        glow: "0 0 0 1px rgba(114,106,134,0.25), 0 10px 30px -12px rgba(114,106,134,0.32)",
       },
       keyframes: {
         "fade-in": {

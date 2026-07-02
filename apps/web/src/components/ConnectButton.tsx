@@ -2,7 +2,7 @@
 
 import { useWallet } from "@/lib/wallet";
 import { shortAddr } from "@/lib/format";
-import { Button, StatusDot } from "@/components/ui";
+import { StatusDot } from "@/components/ui";
 
 export function ConnectButton() {
   const { address, connect, disconnect, connecting } = useWallet();
@@ -10,20 +10,20 @@ export function ConnectButton() {
   if (address) {
     return (
       <div className="flex items-center gap-2">
-        <span className="hidden items-center gap-2 rounded-lg border border-line bg-panel px-3 py-1.5 text-sm font-mono text-fg sm:inline-flex">
+        <span className="hidden items-center gap-2 rounded-lg border border-line bg-panel/80 px-3 py-1.5 text-sm font-mono text-fg backdrop-blur-sm sm:inline-flex">
           <StatusDot tone="accent" />
           {shortAddr(address)}
         </span>
-        <Button variant="ghost" size="sm" onClick={disconnect}>
+        <button type="button" className="push-btn" onClick={disconnect}>
           Disconnect
-        </Button>
+        </button>
       </div>
     );
   }
 
   return (
-    <Button size="md" variant="secondary" loading={connecting} onClick={connect}>
+    <button type="button" className="push-btn" onClick={connect} disabled={connecting}>
       {connecting ? "Connecting…" : "Connect Wallet"}
-    </Button>
+    </button>
   );
 }
