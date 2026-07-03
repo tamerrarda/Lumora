@@ -89,14 +89,16 @@ export function SideNav() {
   return (
     <>
       {/* floating top-left: burger + elegant wordmark (no bar, no logo) */}
-      <div className="fixed left-6 top-6 z-40 flex items-center gap-5 lg:left-10">
+      <div className="fixed left-4 top-5 z-40 flex items-center gap-3 sm:left-6 sm:top-6 sm:gap-5 lg:left-10">
         <Burger open={open} onClick={() => setOpen((v) => !v)} />
-        <Wordmark onClick={() => setOpen(false)} className="text-3xl sm:text-4xl" />
+        <Wordmark onClick={() => setOpen(false)} className="text-2xl sm:text-3xl md:text-4xl" />
       </div>
 
-      {/* floating top-right: feedback + docs links + connect wallet */}
-      <div className="fixed right-6 top-5 z-40 flex items-center gap-8 lg:right-10">
-        <div className="flex items-center gap-6">
+      {/* floating top-right: feedback + docs links + connect wallet.
+          On small screens the text links live in the drawer instead, so the
+          top bar never collides with the wordmark. */}
+      <div className="fixed right-4 top-4 z-40 flex items-center gap-4 sm:right-6 sm:top-5 sm:gap-8 lg:right-10">
+        <div className="hidden items-center gap-6 sm:flex">
           <a
             href="https://forms.gle/8jM5kg7TBzSxitu98"
             target="_blank"
@@ -155,7 +157,16 @@ export function SideNav() {
                 <NavList onNavigate={() => setOpen(false)} />
               </div>
 
-              <div className="border-t border-line pt-4">
+              <div className="space-y-4 border-t border-line pt-4">
+                <a
+                  href="https://forms.gle/8jM5kg7TBzSxitu98"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="block px-1 text-sm font-semibold uppercase tracking-wide text-fg transition-colors hover:text-accent sm:hidden"
+                >
+                  Feedback ↗
+                </a>
                 <div className="flex items-center gap-2 px-1 text-xs text-muted">
                   <StatusDot tone="accent" pulse /> Testnet · live
                 </div>
