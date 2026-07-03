@@ -10,21 +10,21 @@ Employers deposit USDC, create salary streams for employees, and employees can w
 
 ## Screenshots
 
-| Landing | Earnings — live per-second counters |
+| Landing | Payroll — fund & create streams |
 |---|---|
-| ![Landing](docs/screenshots/01-landing.png) | ![Earnings](docs/screenshots/02-earnings.png) |
-| **Payroll — fund & create stream** | **Payroll — streams & activity** |
-| ![Payroll create](docs/screenshots/03-payroll-create.png) | ![Payroll streams](docs/screenshots/04-payroll-streams.png) |
+| ![Landing](docs/screenshots/01-landing.png) | ![Payroll](docs/screenshots/02-payroll.png) |
 | **Treasury & yield** | **Analytics** |
-| ![Treasury](docs/screenshots/05-treasury.png) | ![Analytics](docs/screenshots/06-analytics.png) |
-| **Docs** | |
-| ![Docs](docs/screenshots/07-docs.png) | |
+| ![Treasury](docs/screenshots/03-treasury.png) | ![Analytics](docs/screenshots/04-analytics.png) |
+| **Under the hood** | **Docs** |
+| ![Under the hood](docs/screenshots/05-under-the-hood.png) | ![Docs](docs/screenshots/06-docs.png) |
 
 **Mobile**
 
 <p>
-  <img src="docs/screenshots/08-mobile-landing.png" width="240" alt="Mobile landing" />
-  <img src="docs/screenshots/09-mobile-how-it-works.png" width="240" alt="Mobile how it works" />
+  <img src="docs/screenshots/07-mobile-landing.png" width="220" alt="Mobile landing" />
+  <img src="docs/screenshots/08-mobile-menu.png" width="220" alt="Mobile menu" />
+  <img src="docs/screenshots/09-mobile-under-the-hood.png" width="220" alt="Mobile under the hood" />
+  <img src="docs/screenshots/10-mobile-docs.png" width="220" alt="Mobile docs" />
 </p>
 
 ---
