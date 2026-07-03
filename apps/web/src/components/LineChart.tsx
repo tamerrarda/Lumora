@@ -13,7 +13,7 @@ interface Props {
 // width 100% (stretches via preserveAspectRatio none).
 export function LineChart({
   data,
-  color = "#6e56cf",
+  color = "#726a86",
   height = 160,
   unit = "USDC",
 }: Props) {
@@ -24,7 +24,7 @@ export function LineChart({
   if (data.length < 2) {
     return (
       <div
-        className="flex items-center justify-center rounded-lg bg-surface text-sm text-faint"
+        className="flex items-center justify-center bg-surface text-sm text-faint"
         style={{ height: H }}
       >
         Not enough data to chart (need at least 2 points).

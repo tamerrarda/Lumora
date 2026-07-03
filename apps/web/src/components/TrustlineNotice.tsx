@@ -17,7 +17,7 @@ export function TrustlineNotice() {
   if (!data || (data.funded && data.hasTrustline)) return null;
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl2 border border-yellow/50 bg-yellow-soft p-5">
+    <div className="flex flex-wrap items-center justify-between gap-4 border border-yellow/50 bg-yellow-soft p-5">
       <div>
         <h3 className="font-semibold text-fg">
           {!data.funded ? "Your wallet isn't funded yet" : "USDC trustline required"}

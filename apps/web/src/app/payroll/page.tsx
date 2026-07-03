@@ -9,7 +9,7 @@ import { FundForm } from "@/components/FundForm";
 import { CreateStreamForm } from "@/components/CreateStreamForm";
 import { StreamTable } from "@/components/StreamTable";
 import { ActivityFeed } from "@/components/ActivityFeed";
-import { Button, EmptyState, PageHeader, Stat, Spinner } from "@/components/ui";
+import { EmptyState, PageHeader, Stat, Spinner } from "@/components/ui";
 
 export default function PayrollPage() {
   const { address, connect } = useWallet();
@@ -53,14 +53,18 @@ export default function PayrollPage() {
       <EmptyState
         title="Employer panel"
         description="Connect your wallet to manage payroll."
-        action={<Button size="lg" variant="secondary" onClick={connect}>Connect Wallet</Button>}
+        action={<button type="button" className="box" onClick={connect}>Connect Wallet</button>}
       />
     );
   }
 
   return (
     <div className="space-y-7">
-      <PageHeader title="Payroll" subtitle="Fund · create salary streams · manage" />
+      <PageHeader
+        eyebrow="Employer"
+        title="Payroll"
+        subtitle="Fund · create salary streams · manage"
+      />
 
       <div className="grid gap-4 sm:grid-cols-2">
         <Stat

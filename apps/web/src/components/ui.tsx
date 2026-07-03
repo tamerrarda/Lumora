@@ -25,7 +25,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-xl2 border border-line bg-panel/80 shadow-card backdrop-blur-sm",
+        "border border-line bg-panel/80 shadow-card backdrop-blur-sm",
         glow && "shadow-glow",
         className
       )}
@@ -155,11 +155,13 @@ export function Stat({
 
 /* ---------------- PageHeader ---------------- */
 export function PageHeader({
+  eyebrow,
   title,
   subtitle,
   badge,
   right,
 }: {
+  eyebrow?: string;
   title: string;
   subtitle?: string;
   badge?: ReactNode;
@@ -167,12 +169,20 @@ export function PageHeader({
 }) {
   return (
     <div className="flex flex-wrap items-end justify-between gap-4">
-      <div>
+      <div className="space-y-2">
+        {eyebrow && (
+          <div className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <span className="h-px w-6 bg-accent/40" />
+            {eyebrow}
+          </div>
+        )}
         <div className="flex items-center gap-3">
-          <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
+          <h1 className="font-serif text-3xl font-normal italic tracking-tight sm:text-4xl">
+            {title}
+          </h1>
           {badge}
         </div>
-        {subtitle && <p className="mt-1 text-sm text-muted">{subtitle}</p>}
+        {subtitle && <p className="text-sm text-muted">{subtitle}</p>}
       </div>
       {right && <div className="flex items-center gap-3">{right}</div>}
     </div>
@@ -192,16 +202,16 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <Card className="flex flex-col items-center px-8 py-12 text-center">
+    <div className="flex flex-col items-center border border-line bg-panel/80 px-8 py-14 text-center shadow-card backdrop-blur-sm">
       {icon && (
         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft text-2xl">
           {icon}
         </div>
       )}
-      <h2 className="text-lg font-semibold">{title}</h2>
-      {description && <p className="mt-2 max-w-sm text-sm text-muted">{description}</p>}
-      {action && <div className="mt-6">{action}</div>}
-    </Card>
+      <h2 className="font-serif text-2xl font-bold italic tracking-tight sm:text-3xl">{title}</h2>
+      {description && <p className="mt-3 max-w-sm text-sm text-muted">{description}</p>}
+      {action && <div className="mt-7">{action}</div>}
+    </div>
   );
 }
 

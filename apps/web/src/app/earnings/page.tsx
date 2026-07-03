@@ -23,7 +23,7 @@ export default function EarningsPage() {
       <EmptyState
         title="Connect to see your earnings"
         description="Connect your wallet and we'll find your salary streams automatically. No stream ID needed."
-        action={<Button size="lg" variant="secondary" onClick={connect}>Connect Wallet</Button>}
+        action={<button type="button" className="box" onClick={connect}>Connect Wallet</button>}
       />
     );
   }
@@ -58,6 +58,7 @@ export default function EarningsPage() {
   return (
     <div className="space-y-7">
       <PageHeader
+        eyebrow="Employee"
         title="My Earnings"
         subtitle={`${data.length} active stream(s) · values increase every second`}
       />

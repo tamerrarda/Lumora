@@ -6,16 +6,17 @@ import { useWallet } from "@/lib/wallet";
 import { deriveEmployerAnalytics, type SeriesPoint } from "@/lib/analytics";
 import { LineChart } from "@/components/LineChart";
 import { formatUsdc, unitsToNumber } from "@/lib/format";
-import { Badge, Button, Card, EmptyState, PageHeader, Spinner, Stat } from "@/components/ui";
+import { Badge, Card, EmptyState, PageHeader, Spinner, Stat } from "@/components/ui";
 
 export default function AnalyticsPage() {
   const { address, connect } = useWallet();
 
-  const { data, isLoading } = useQuery({
+  const { data, isPending, isError, error, refetch, isFetching } = useQuery({
     queryKey: ["analytics", address],
     queryFn: () => deriveEmployerAnalytics(address!),
     enabled: !!address,
     staleTime: 15_000,
+    retry: 2,
   });
 
   const yieldProjection = useMemo<SeriesPoint[]>(() => {
@@ -30,22 +31,45 @@ export default function AnalyticsPage() {
       <EmptyState
         title="Analytics"
         description="Connect your wallet to see payroll analytics."
-        action={<Button size="lg" variant="secondary" onClick={connect}>Connect Wallet</Button>}
+        action={<button type="button" className="box" onClick={connect}>Connect Wallet</button>}
       />
     );
   }
 
-  if (isLoading || !data) {
+  if (isError) {
+    return (
+      <EmptyState
+        title="Couldn't load analytics"
+        description={
+          error instanceof Error
+            ? error.message
+            : "The network didn't respond. Please try again."
+        }
+        action={
+          <button type="button" className="box" onClick={() => refetch()}>
+            Try again
+          </button>
+        }
+      />
+    );
+  }
+
+  if (isPending || !data) {
     return (
       <div className="flex items-center justify-center gap-3 py-20 text-muted">
-        <Spinner className="h-5 w-5" /> Computing analytics…
+        <Spinner className="h-5 w-5" />
+        {isFetching ? "Computing analytics…" : "Preparing…"}
       </div>
     );
   }
 
   return (
     <div className="space-y-7">
-      <PageHeader title="Analytics" subtitle="Payroll spend and yield projection" />
+      <PageHeader
+        eyebrow="Insights"
+        title="Analytics"
+        subtitle="Payroll spend and yield projection"
+      />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Stat label="Total Funded" value={formatUsdc(data.totalFunded, 2)} />
@@ -56,7 +80,7 @@ export default function AnalyticsPage() {
 
       <Card className="p-6">
         <h3 className="mb-4 font-semibold">Payroll Spend (cumulative withdrawals)</h3>
-        <LineChart data={data.spendSeries} color="#6e56cf" />
+        <LineChart data={data.spendSeries} color="#726a86" />
         <p className="mt-3 text-xs text-faint">
           Total USDC employees have withdrawn over time — from on-chain events (real).
         </p>

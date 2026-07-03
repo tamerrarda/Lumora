@@ -6,7 +6,7 @@ import { readVaultState } from "@/lib/vault";
 import { readUsdcBalance } from "@/lib/stellar";
 import { formatUsdc } from "@/lib/format";
 import { DepositForm, WithdrawForm, FundPayrollForm } from "@/components/VaultForms";
-import { Button, EmptyState, PageHeader, Stat } from "@/components/ui";
+import { EmptyState, PageHeader, Stat } from "@/components/ui";
 
 export default function VaultPage() {
   const { address, connect } = useWallet();
@@ -32,6 +32,7 @@ export default function VaultPage() {
   return (
     <div className="space-y-7">
       <PageHeader
+        eyebrow="Treasury"
         title="Treasury & Yield"
         subtitle="Deposit idle USDC, accrue yield, fund payroll"
       />
@@ -45,7 +46,7 @@ export default function VaultPage() {
       {!address ? (
         <EmptyState
           title="Connect to use the treasury"
-          action={<Button size="lg" variant="secondary" onClick={connect}>Connect Wallet</Button>}
+          action={<button type="button" className="box" onClick={connect}>Connect Wallet</button>}
         />
       ) : (
         <>
