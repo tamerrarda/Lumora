@@ -5,7 +5,7 @@ import { DocsPrevNext } from "@/components/DocsPrevNext";
 export default function DocsLayout({ children }: { children: ReactNode }) {
   return (
     <div className="grid gap-8 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-12">
-      <aside className="lg:sticky lg:top-20 lg:self-start">
+      <aside className="min-w-0 lg:sticky lg:top-20 lg:self-start">
         <DocsSidebar />
       </aside>
       <div className="min-w-0">
