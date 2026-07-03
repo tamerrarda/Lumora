@@ -10,7 +10,7 @@ export function ConnectButton() {
   if (address) {
     return (
       <div className="flex items-center gap-2">
-        <span className="hidden items-center gap-2 rounded-lg border border-line bg-panel/80 px-3 py-1.5 text-sm font-mono text-fg backdrop-blur-sm sm:inline-flex">
+        <span className="hidden items-center gap-2 rounded-lg border border-line bg-panel px-3 py-1.5 text-sm font-mono text-fg sm:inline-flex">
           <StatusDot tone="accent" />
           {shortAddr(address)}
         </span>

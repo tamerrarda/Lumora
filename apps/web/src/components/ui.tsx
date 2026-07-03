@@ -25,7 +25,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "border border-line bg-panel/80 shadow-card backdrop-blur-sm",
+        "border border-line bg-panel shadow-card",
         glow && "shadow-glow",
         className
       )}
@@ -202,7 +202,7 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center border border-line bg-panel/80 px-8 py-14 text-center shadow-card backdrop-blur-sm">
+    <div className="flex flex-col items-center border border-line bg-panel px-8 py-14 text-center shadow-card">
       {icon && (
         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft text-2xl">
           {icon}
